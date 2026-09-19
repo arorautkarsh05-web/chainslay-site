@@ -4,6 +4,36 @@
 
 Chainslay is a full-stack inventory management, analytics, and verifiable governance application. The application allows users to upload inventory data, view analytics on stock levels (ABC, XYZ, FSN classification), run baseline ML demand forecasting, and manage excess/understock recommendations via an approval workflow backed by cryptographic audit logging.
 
+## Application Demo & Feature Showcase
+
+### 1. Command Center & Real-Time Inventory Control
+> Real-time capital metrics, excess capital detection, stockout risk alerts, and cryptographic blockchain audit status.
+
+![Command Center & Real-time Dashboard](docs/screenshots/chainslay_demo_1.png)
+
+---
+
+### 2. Autonomous Merchandising AI & Festival Recommender (2026)
+> Cultural calendar intelligence projecting 2.4x–4.2x demand surges for upcoming festivals (Navratri, Dussehra, Diwali) across retail verticals.
+
+![Festival Cultural Significance & Product Recommender](docs/screenshots/chainslay_demo_2.png)
+
+---
+
+### 3. Curated FMCG Product Procurement Catalog
+> High-margin authentic FMCG goods curated with wholesale pricing, suggested MSRP, profit margin analytics, and order urgency.
+
+![Curated FMCG Procurement](docs/screenshots/chainslay_demo_3.png)
+
+---
+
+### 4. SKU Analytics & Interactive Reorder Capsule
+> Pareto ABC/XYZ segmentation table and automated replenishment workflow with deficit calculation and manager review notes.
+
+![SKU Analytics & Reorder Capsule](docs/screenshots/chainslay_demo_4.png)
+
+---
+
 ## Core Features
 
 - **Real-time Inventory Dashboards**: Working capital, excess capital tied up, and alert metrics.
