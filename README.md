@@ -1,10 +1,13 @@
-# Chainslay Site - Full-Stack Application
+<img width="1873" height="910" alt="image" src="https://github.com/user-attachments/assets/934ed66d-ac3b-493c-8abe-9baee1a5020e" /># Chainslay Site - Full-Stack Application
 
 ## Project Overview
 
 Chainslay is a full-stack inventory management, analytics, and verifiable governance application. The application allows users to upload inventory data, view analytics on stock levels (ABC, XYZ, FSN classification), run baseline ML demand forecasting, and manage excess/understock recommendations via an approval workflow backed by cryptographic audit logging.
 
 ## Application Demo & Feature Showcase
+
+#### Live link to test :
+    https://chainslay-site.onrender.com
 
 ### 1. Command Center & Real-Time Inventory Control
 > Real-time capital metrics, excess capital detection, stockout risk alerts, and cryptographic blockchain audit status.
