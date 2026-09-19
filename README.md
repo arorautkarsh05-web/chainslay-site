@@ -1,4 +1,3 @@
-<img width="1873" height="910" alt="image" src="https://github.com/user-attachments/assets/934ed66d-ac3b-493c-8abe-9baee1a5020e" /># Chainslay Site - Full-Stack Application
 
 ## Project Overview
 
