@@ -1,6 +1,8 @@
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
+import path from "path";
+import fs from "fs";
 import { verifyConnection } from "./config/database";
 
 import inventoryRoutes from "./routes/inventoryRoutes";
@@ -18,7 +20,8 @@ const PORT = process.env.PORT || 4000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:5173', 'http://localhost:3000'],
+  origin: true,
+  credentials: true,
   methods: ['GET', 'POST', 'PUT', 'DELETE'],
 }));
 app.use(express.json());
@@ -27,7 +30,7 @@ app.use(express.urlencoded({ extended: true }));
 // Test DB Connection
 verifyConnection();
 
-// Routes
+// API Routes
 app.use('/api/inventory', inventoryRoutes);
 app.use('/api/uploads', uploadRoutes);
 app.use('/api/analytics', analyticsRoutes);
@@ -50,6 +53,21 @@ app.get('/api/health', async (req, res) => {
   }
 });
 
+// Serve static frontend assets in production (Fullstack deployment on Render/Heroku)
+const clientDistPath = path.resolve(process.cwd(), "dist", "public");
+if (fs.existsSync(clientDistPath)) {
+  app.use(express.static(clientDistPath));
+
+  // SPA fallback: Return index.html for any unmatched client routes
+  app.get("*", (req, res, next) => {
+    if (req.path.startsWith("/api")) {
+      return next();
+    }
+    res.sendFile(path.join(clientDistPath, "index.html"));
+  });
+}
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`);
 });
+
