@@ -4,6 +4,7 @@ import dotenv from "dotenv";
 import path from "path";
 import fs from "fs";
 import { verifyConnection } from "./config/database";
+import { autoInitDatabase } from "./config/initDatabase";
 
 import inventoryRoutes from "./routes/inventoryRoutes";
 import uploadRoutes from "./routes/uploadRoutes";
@@ -27,8 +28,12 @@ app.use(cors({
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Test DB Connection
-verifyConnection();
+// Test DB Connection and auto-initialize tables
+verifyConnection().then((ok) => {
+  if (ok) {
+    autoInitDatabase();
+  }
+});
 
 // API Routes
 app.use('/api/inventory', inventoryRoutes);
