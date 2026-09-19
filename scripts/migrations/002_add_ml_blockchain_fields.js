@@ -6,12 +6,14 @@ export async function runMigration() {
   const dbName = process.env.DB_NAME || "chainslay_db";
   console.log(`Starting Phase 1 migration on database: ${dbName}...`);
 
+  const isRemote = Boolean(process.env.DB_HOST && !process.env.DB_HOST.includes("127.0.0.1") && !process.env.DB_HOST.includes("localhost"));
   const conn = await mysql.createConnection({
     host: process.env.DB_HOST || "127.0.0.1",
     port: parseInt(process.env.DB_PORT || "3306", 10),
     user: process.env.DB_USER || "root",
     password: process.env.DB_PASSWORD,
     database: dbName,
+    ssl: process.env.DB_SSL === "true" || isRemote ? { minVersion: "TLSv1.2", rejectUnauthorized: false } : undefined,
   });
 
   console.log("Connected to MySQL. Performing pre-migration checks...");
